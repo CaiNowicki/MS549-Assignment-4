@@ -9,37 +9,22 @@
 using namespace std;
 
 //create Node of doubly linked list
-struct Node {
-	int data;
-	Node* prev, * next;
-	static Node* getnode(int data) {
-		Node* newNode = (Node*)malloc(sizeof(Node));
-		newNode->data = data;
-		newNode->prev = newNode->next = NULL;
-		return newNode;
+Node* Node::getnode(int data) {
+	Node* newNode = (Node*)malloc(sizeof(Node));
+	if (newNode == NULL) {
+		cout << "Memory allocation failed" << endl;
+		return NULL;
 	}
+	newNode->data = data;
+	newNode->prev = newNode->next = NULL;
+	return newNode;
+}
 
-};
-
-//Queue structure
-class Queue {
-	Node* front;
-	Node* rear;
-	int Size;
-public:
-	Queue() {
-		front = rear = NULL;
-		Size = 0;
-	}
-	//operations on Queue - FIFO
-	void insert(int data);
-	void remove();
-	int printAll();
-	int size();
-	bool isEmpty();
-	void erase();
-};
-
+// Constructor for the Queue class
+Queue::Queue() {
+	front = rear = NULL;
+	Size = 0;
+}
 //Check if queue is empty
 bool Queue::isEmpty() {
 	return (front == NULL);

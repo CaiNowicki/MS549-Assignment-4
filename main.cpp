@@ -5,6 +5,7 @@ using namespace std;
 
 int main() {
     Queue q;
+
     cout << "Insert element '5' at the front\n";
     q.insert(5);
 
@@ -14,17 +15,20 @@ int main() {
     cout << "Insert element '15' at the front\n";
     q.insert(15);
 
-    cout << "Number of elements in the Queue: " << q.size() << endl;
+    cout << "Queue after inserting elements:\n";
+    q.printAll();
 
     cout << "Removing an element from the front\n";
     q.remove();
 
-    cout << "Number of elements in the Queue after removal: " << q.size() << endl;
+    cout << "Queue after removal:\n";
+    q.printAll();
 
     cout << "Clearing all elements in the Queue\n";
     q.erase();
 
-    cout << "Is the Queue empty? " << (q.isEmpty() ? "Yes" : "No") << endl;
+    cout << "Queue after clearing:\n";
+    q.printAll();
 
     return 0;
 }
