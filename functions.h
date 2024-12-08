@@ -28,4 +28,26 @@ public:
     int size();
     bool isEmpty();
     void erase();
+    int printAll();
 };
+
+//Stack class
+class Stack {
+    Node* start;
+    Node* top;
+    int Size;
+
+public:
+    //Constructor
+    Stack();
+
+    //Stack operations
+    void insert(int data);
+    void remove();
+    int size();
+    bool isEmpty();
+    void erase();
+    int printAll();
+};
+void measureInsertionTime();
+void measureDeleteTime();

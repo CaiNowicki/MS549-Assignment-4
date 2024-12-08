@@ -1,0 +1,4 @@
+Test size, Queue Time Taken, Stack Time Taken
+100,162,20
+1000,184,182
+10000,1728,1802

@@ -1,7 +1,10 @@
 #include <iostream>
+#include <fstream>
+#include <chrono>
 #include "functions.h"
 
 using namespace std;
+using namespace chrono;
 
 int main() {
     Queue q;
@@ -29,6 +32,11 @@ int main() {
 
     cout << "Queue after clearing:\n";
     q.printAll();
+
+    //insertion time test
+    measureInsertionTime();
+    //deletion time test
+    measureDeleteTime();
 
     return 0;
 }
