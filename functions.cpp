@@ -190,7 +190,6 @@ void Stack::erase() {
 void measureInsertionTime() {
 	Queue q;
 	Stack s;
-	int testSizes[] = { 100, 1000, 10000 };
 
 	ofstream outFile("Assignment4_Insert.csv");
 	if (!outFile.is_open()) {
@@ -200,7 +199,8 @@ void measureInsertionTime() {
 	//create outfile header
 	outFile << "Test size, Queue Time Taken, Stack Time Taken" << endl;
 
-	for (int size : testSizes) {
+	for (int size = 100; size <= 100000; size += 1000) {
+		cout << "Testing for queue size " << size << endl;
 		//Measure for Queue
 		//start timer
 		auto start = chrono::high_resolution_clock::now();
@@ -214,6 +214,7 @@ void measureInsertionTime() {
 		auto queueDuration = chrono::duration_cast<chrono::microseconds>(end - start).count();
 
 		//Measure for Stack
+		cout << "Testing for stack size " << size << endl;
 		// start time
 		start = chrono::high_resolution_clock::now();
 		for (int i = 0; i < size; i++) {
@@ -236,7 +237,6 @@ void measureInsertionTime() {
 void measureDeleteTime() {
 	Queue q;
 	Stack s;
-	int testSizes[] = { 100, 1000, 10000 };
 
 	ofstream outFile("Assignment4_Delete.csv");
 	if (!outFile.is_open()) {
@@ -245,7 +245,7 @@ void measureDeleteTime() {
 	}
 	outFile << "Test size, Queue Time (ms), Stack Time (ms)" << endl;
 
-	for (int size : testSizes) {
+	for (int size = 100; size <= 100000; size += 1000) {
 		// Fill Queue and Stack
 		for (int i = 0; i < size; i++) {
 			q.insert(rand() % 1000);
@@ -253,6 +253,7 @@ void measureDeleteTime() {
 		}
 
 		// Measure for Queue
+		cout << "Testing queue for size " << size << endl;
 		auto start = chrono::high_resolution_clock::now();
 		for (int i = 0; i < size; i++) {
 			q.remove();
@@ -261,6 +262,7 @@ void measureDeleteTime() {
 		auto queueDuration = chrono::duration_cast<chrono::microseconds>(end - start).count();
 
 		// Measure for Stack
+		cout << "Testing stack for size " << size << endl;
 		start = chrono::high_resolution_clock::now();
 		for (int i = 0; i < size; i++) {
 			s.remove();
